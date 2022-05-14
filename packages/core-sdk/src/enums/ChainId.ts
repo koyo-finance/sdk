@@ -1,0 +1,10 @@
+export enum ChainId {
+	ETHEREUM = 1,
+	MOONBEAM = 1284,
+	RINKEBY = 4,
+	MOONBASE = 1287,
+	BOBA = 288,
+	BOBABEAM = 1294,
+	BOBA_RINKEBY = 28,
+	BOBABASE = 1297
+}

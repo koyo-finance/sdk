@@ -1,0 +1,63 @@
+{
+	"name": "@koyofinance/core-sdk",
+	"version": "0.1.0",
+	"description": "",
+	"author": "@koyofinance",
+	"license": "UNLICENSED",
+	"main": "dist/index.js",
+	"module": "dist/index.mjs",
+	"types": "dist/index.d.ts",
+	"keywords": [
+		"@koyofinance/core-sdk",
+		"koyo",
+		"koyo-finance",
+		"sdk",
+		"core",
+		"ethers",
+		"boba",
+        "ethereum",
+		"bobabeam",
+        "moonbeam"
+	],
+	"scripts": {
+		"lint": "eslint src tests --ext ts --fix -c ../../.eslintrc",
+		"build": "tsup && tsc -b src",
+		"prepack": "yarn build",
+		"bump": "cliff-jumper",
+		"check-update": "cliff-jumper --dry-run"
+	},
+	"files": [
+		"dist/**/*.js*",
+		"dist/**/*.mjs*",
+		"dist/**/*.d*"
+	],
+	"exports": {
+		"import": "./dist/index.mjs",
+		"require": "./dist/index.js",
+		"types": "./dist/index.d.ts"
+	},
+	"sideEffects": false,
+	"dependencies": {
+		"tslib": "^2.4.0"
+	},
+	"devDependencies": {
+		"tsup": "^5.12.7",
+		"typescript": "^4.6.4"
+	},
+	"engines": {
+		"node": ">=v14.0.0",
+		"npm": ">=7.0.0"
+	},
+	"homepage": "https://github.com/koyofinance/sdk/tree/main/packages/core-sdk",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/koyofinance/sdk.git",
+		"directory": "packages/core-sdk"
+	},
+	"bugs": {
+		"url": "https://github.com/koyofinance/sdk/issues"
+	},
+	"publishConfig": {
+		"access": "public"
+	}
+}
