@@ -5,7 +5,6 @@
 	"author": "@koyofinance",
 	"license": "UNLICENSED",
 	"main": "dist/index.js",
-	"module": "dist/index.mjs",
 	"types": "dist/index.d.ts",
 	"keywords": [
 		"@koyofinance/core-sdk",
@@ -33,7 +32,7 @@
 		"dist/**/*.d*"
 	],
 	"exports": {
-		"import": "./dist/index.mjs",
+		"import": "./dist/index.js",
 		"require": "./dist/index.js",
 		"types": "./dist/index.d.ts"
 	},
