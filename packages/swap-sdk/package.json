@@ -1,0 +1,61 @@
+{
+	"name": "@koyofinance/swap-sdk",
+	"version": "0.1.0",
+	"description": "",
+	"author": "@koyofinance",
+	"license": "UNLICENSED",
+	"main": "dist/index.js",
+	"module": "dist/index.mjs",
+	"types": "dist/index.d.ts",
+	"keywords": [
+		"@koyofinance/core-sdk",
+		"koyo",
+		"koyo-finance",
+		"koyofinance",
+		"sdk",
+		"swap",
+		"pools"
+	],
+	"scripts": {
+		"lint": "eslint src tests --ext ts --fix -c ../../.eslintrc",
+		"build": "tsup && tsc -b src",
+		"prepack": "yarn build",
+		"bump": "cliff-jumper",
+		"check-update": "cliff-jumper --dry-run"
+	},
+	"files": [
+		"dist/**/*.js*",
+		"dist/**/*.mjs*",
+		"dist/**/*.d*"
+	],
+	"exports": {
+		"import": "./dist/index.mjs",
+		"require": "./dist/index.js",
+		"types": "./dist/index.d.ts"
+	},
+	"sideEffects": false,
+	"dependencies": {
+		"@koyofinance/core-sdk": "workspace:^",
+		"tslib": "^2.4.0"
+	},
+	"devDependencies": {
+		"tsup": "^5.12.7",
+		"typescript": "^4.6.4"
+	},
+	"engines": {
+		"node": ">=v14.0.0",
+		"npm": ">=7.0.0"
+	},
+	"homepage": "https://github.com/koyo-finance/sdk/tree/main/packages/swap-sdk",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/koyo-finance/sdk.git",
+		"directory": "packages/swap-sdk"
+	},
+	"bugs": {
+		"url": "https://github.com/koyo-finance/sdk/issues"
+	},
+	"publishConfig": {
+		"access": "public"
+	}
+}

@@ -771,7 +771,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@koyofinance/core-sdk@workspace:packages/core-sdk":
+"@koyofinance/core-sdk@workspace:^, @koyofinance/core-sdk@workspace:packages/core-sdk":
   version: 0.0.0-use.local
   resolution: "@koyofinance/core-sdk@workspace:packages/core-sdk"
   dependencies:
@@ -780,6 +780,17 @@ __metadata:
     tsup: ^5.12.7
     typescript: ^4.6.4
     wagmi: ^0.3.5
+  languageName: unknown
+  linkType: soft
+
+"@koyofinance/swap-sdk@workspace:packages/swap-sdk":
+  version: 0.0.0-use.local
+  resolution: "@koyofinance/swap-sdk@workspace:packages/swap-sdk"
+  dependencies:
+    "@koyofinance/core-sdk": "workspace:^"
+    tslib: ^2.4.0
+    tsup: ^5.12.7
+    typescript: ^4.6.4
   languageName: unknown
   linkType: soft
 
