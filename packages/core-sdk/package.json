@@ -5,11 +5,13 @@
 	"author": "@koyofinance",
 	"license": "UNLICENSED",
 	"main": "dist/index.js",
+	"module": "dist/index.mjs",
 	"types": "dist/index.d.ts",
 	"keywords": [
 		"@koyofinance/core-sdk",
 		"koyo",
 		"koyo-finance",
+		"koyofinance",
 		"sdk",
 		"core",
 		"ethers",
@@ -49,14 +51,14 @@
 		"node": ">=v14.0.0",
 		"npm": ">=7.0.0"
 	},
-	"homepage": "https://github.com/koyofinance/sdk/tree/main/packages/core-sdk",
+	"homepage": "https://github.com/koyo-finance/sdk/tree/main/packages/core-sdk",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/koyofinance/sdk.git",
+		"url": "git+https://github.com/koyo-finance/sdk.git",
 		"directory": "packages/core-sdk"
 	},
 	"bugs": {
-		"url": "https://github.com/koyofinance/sdk/issues"
+		"url": "https://github.com/koyo-finance/sdk/issues"
 	},
 	"publishConfig": {
 		"access": "public"

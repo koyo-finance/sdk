@@ -1,7 +1,7 @@
 import type { BigNumberish } from 'ethers';
 import { formatUnits } from 'ethers/lib/utils';
 
-export default function formatBalance(
+export function formatBalance(
 	val: BigNumberish,
 	options: Intl.NumberFormatOptions = {
 		maximumFractionDigits: 5,

@@ -1,3 +1,3 @@
-export default function flattenArray<T = unknown>(arrays: T[][]) {
+export function flattenArray<T = unknown>(arrays: T[][]) {
 	return new Array<T>().concat(...arrays);
 }

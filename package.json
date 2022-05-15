@@ -14,6 +14,7 @@
 		"check-update": "turbo run check-update"
 	},
 	"devDependencies": {
+		"@favware/cliff-jumper": "^1.8.0",
 		"@favware/rollup-type-bundler": "^1.0.7",
 		"@sapphire/eslint-config": "^4.3.4",
 		"@sapphire/prettier-config": "^1.4.3",
@@ -35,7 +36,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/koyofinance/sdk.git"
+		"url": "git+https://github.com/koyo-finance/sdk.git"
 	},
 	"engines": {
 		"node": ">=v14.0.0",

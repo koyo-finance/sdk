@@ -1,7 +1,7 @@
 import type { BigNumberish } from 'ethers';
 import { formatUnits } from 'ethers/lib/utils';
 
-export default function calculatePercentage(
+export function calculatePercentage(
 	full: BigNumberish,
 	part: BigNumberish,
 	defaultValue = 0,
