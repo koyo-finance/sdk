@@ -1,5 +1,5 @@
 {
-	"extends": "@sapphire/ts-config",
+	"extends": "../../tsconfig.eslint.json",
 	"compilerOptions": {
 		"allowJs": true,
 		"checkJs": true
