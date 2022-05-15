@@ -43,5 +43,5 @@
 		"npm": ">=7.0.0"
 	},
 	"prettier": "@sapphire/prettier-config",
-	"packageManager": "yarn@1.22.17"
+	"packageManager": "yarn@3.2.1"
 }
