@@ -14,7 +14,7 @@ export const coins: ReadonlyArray<RawCoin> = [
 	},
 	{
 		id: 'boba:frax',
-		coingeckoId: 'Frax',
+		coingeckoId: 'frax',
 		chainId: ChainId.BOBA,
 		type: REFERENCE_ASSETS.USD,
 		name: 'Frax',
