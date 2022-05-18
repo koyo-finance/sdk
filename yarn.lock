@@ -775,6 +775,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@koyofinance/core-sdk@workspace:packages/core-sdk"
   dependencies:
+    "@uniswap/token-lists": ^1.0.0-beta.28
     ethers: ^5.6.6
     tslib: ^2.4.0
     tsup: ^5.12.7
@@ -1234,6 +1235,13 @@ __metadata:
     "@typescript-eslint/types": 5.23.0
     eslint-visitor-keys: ^3.0.0
   checksum: 322e10d52a985e8a90d3612bb9d09a87dc64fc4cb1248484f1a9a7a98f65d3ef65a465ce868773a4939e35fa3b726ad609dac5a168efd7eaca4b06df33e965e3
+  languageName: node
+  linkType: hard
+
+"@uniswap/token-lists@npm:^1.0.0-beta.28":
+  version: 1.0.0-beta.28
+  resolution: "@uniswap/token-lists@npm:1.0.0-beta.28"
+  checksum: e867e3e20c12a9130aae8837986323446181b3c5d4f7344a57aa013fe2779bab0620be9938e9e99062a633e09d92e4b2b9ad33fe92e3051101923d91eb132054
   languageName: node
   linkType: hard
 
