@@ -21,3 +21,19 @@ export const CHAIN_HEX: { [chainId in ChainId]: ChainHex } = {
 	[ChainId.BOBA_RINKEBY]: ChainHex.BOBA_RINKEBY,
 	[ChainId.BOBABASE]: ChainHex.BOBABASE
 };
+
+export const CHAIN_EXPLORER: { [chainId in ChainId]: BlockExplorer } = {
+	[ChainId.ETHEREUM]: { url: 'https://etherscan.io/', name: 'Etherscan' },
+	[ChainId.MOONBEAM]: { url: 'https://moonscan.io/', name: 'Moonscan' },
+	[ChainId.RINKEBY]: { url: 'https://rinkeby.etherscan.io/', name: 'Etherscan - Rinkeby' },
+	[ChainId.MOONBASE]: { url: 'https://moonbase.moonscan.io/', name: 'Moonscan - Moonbase' },
+	[ChainId.BOBA]: { url: 'https://blockexplorer.boba.network/', name: 'BlockExplorer - Boba' },
+	[ChainId.BOBABEAM]: { url: '', name: 'BlockExplorer - BobaBeam' },
+	[ChainId.BOBA_RINKEBY]: { url: 'https://blockexplorer.rinkeby.boba.network/', name: 'BlockExplorer - Boba Rinkeby' },
+	[ChainId.BOBABASE]: { url: 'https://blockexplorer.bobabase.boba.network/', name: 'BlockExplorer - BobaBase' }
+};
+
+export interface BlockExplorer {
+	url: string;
+	name?: string;
+}
