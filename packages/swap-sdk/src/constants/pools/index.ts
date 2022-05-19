@@ -1,4 +1,6 @@
 import { ChainKey, CHAIN_KEY } from '@koyofinance/core-sdk';
+import type { PoolTypeKey } from '../../enums';
+import { POOL_TYPE_KEY } from '../pool';
 import { REFERENCE_ASSETS } from '../referenceAssets';
 import { Pool, pools } from './pools';
 
@@ -8,6 +10,7 @@ export const augmentedPools: ReadonlyArray<AugmentedPool> = pools //
 	.map((pool) => ({
 		referenceAsset: REFERENCE_ASSETS.USD, //
 		chainKey: CHAIN_KEY[pool.chainId],
+		poolTypeKey: POOL_TYPE_KEY[pool.type],
 		...pool,
 		coingeckoInfo: { referenceAssetId: 'dollar' }
 	}));
@@ -34,4 +37,5 @@ export interface AugmentedPool extends Pool {
 	referenceAsset: REFERENCE_ASSETS;
 	coingeckoInfo: PoolCoingeckoInfo;
 	chainKey: ChainKey;
+	poolTypeKey: PoolTypeKey;
 }

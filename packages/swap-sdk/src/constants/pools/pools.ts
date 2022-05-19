@@ -1,4 +1,5 @@
 import { ChainId } from '@koyofinance/core-sdk';
+import { PoolType } from '../../enums';
 import { augmentedCoins, Coin } from '../coins';
 
 export const pools: ReadonlyArray<Pool> = [
@@ -6,6 +7,7 @@ export const pools: ReadonlyArray<Pool> = [
 		id: '3pool',
 		name: '3pool',
 		chainId: ChainId.BOBA,
+		type: PoolType.StableSwap,
 		lpTokenInfo: {
 			name: 'Koyo.finance FRAX/USDC/USDT',
 			symbol: '3Koyo'
@@ -25,6 +27,7 @@ export const pools: ReadonlyArray<Pool> = [
 		id: '4pool',
 		name: '4pool',
 		chainId: ChainId.BOBA,
+		type: PoolType.StableSwap,
 		lpTokenInfo: {
 			name: 'Koyo.finance FRAX/DAI/USDC/USDT',
 			symbol: '4Koyo'
@@ -57,6 +60,7 @@ export interface Pool {
 	id: string;
 	name: string;
 	chainId: ChainId;
+	type: PoolType;
 
 	lpTokenInfo: PoolLPTokenInfo;
 
