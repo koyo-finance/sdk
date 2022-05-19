@@ -3,6 +3,25 @@ import { augmentedCoins, Coin } from '../coins';
 
 export const pools: ReadonlyArray<Pool> = [
 	{
+		id: '3pool',
+		name: '3pool',
+		chainId: ChainId.BOBA,
+		lpTokenInfo: {
+			name: 'Koyo.finance FRAX/USDC/USDT',
+			symbol: '3Koyo'
+		},
+		assets: 'FRAX+USDC+USDT',
+		coins: [
+			augmentedCoins['boba:frax'], //
+			augmentedCoins['boba:usdc'],
+			augmentedCoins['boba:usdt']
+		],
+		addresses: {
+			swap: '0x0613adbd846cb73e65aa474b785f52697af04c0b',
+			lpToken: '0xea1e627c12df4e054d61fd408ff7186353ac6ca1'
+		}
+	},
+	{
 		id: '4pool',
 		name: '4pool',
 		chainId: ChainId.BOBA,
