@@ -6,3 +6,4 @@ export * from './reconstructTokenListToLowerCase';
 export * from './shortenHex';
 export * from './toBigNumber';
 export * from './uniqueArray';
+export * from './unixToDate';
