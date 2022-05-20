@@ -778,6 +778,7 @@ __metadata:
     "@uniswap/token-lists": ^1.0.0-beta.28
     dayjs: ^1.11.2
     ethers: ^5.6.6
+    numbro: ^2.3.6
     tslib: ^2.4.0
     tsup: ^5.12.7
     typescript: ^4.6.4
@@ -1789,6 +1790,13 @@ __metadata:
   version: 1.6.51
   resolution: "big-integer@npm:1.6.51"
   checksum: 3d444173d1b2e20747e2c175568bedeebd8315b0637ea95d75fd27830d3b8e8ba36c6af40374f36bdaea7b5de376dcada1b07587cb2a79a928fccdb6e6e3c518
+  languageName: node
+  linkType: hard
+
+"bignumber.js@npm:^8.1.1":
+  version: 8.1.1
+  resolution: "bignumber.js@npm:8.1.1"
+  checksum: 71544348507cd16c2c152699a8e5146964d9cf4f46108075bcd16a964dffb3963256259fc6ffc9753b4d33dfd0cf863a6b564103a3a20e10002f12a1902e8075
   languageName: node
   linkType: hard
 
@@ -4669,6 +4677,15 @@ __metadata:
     gauge: ^4.0.3
     set-blocking: ^2.0.0
   checksum: ae238cd264a1c3f22091cdd9e2b106f684297d3c184f1146984ecbe18aaa86343953f26b9520dedd1b1372bc0316905b736c1932d778dbeb1fcf5a1001390e2a
+  languageName: node
+  linkType: hard
+
+"numbro@npm:^2.3.6":
+  version: 2.3.6
+  resolution: "numbro@npm:2.3.6"
+  dependencies:
+    bignumber.js: ^8.1.1
+  checksum: a659bb418d15310c0accc99e73d5865f20ebe1ded319f78634aec81a07d90389b8c970d16608daf4ded8c47cb896e200ecd81aacc6955fc8c565f4faf33f1a6a
   languageName: node
   linkType: hard
 
