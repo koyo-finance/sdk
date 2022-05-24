@@ -1,20 +1,15 @@
-import { normalizeChainId } from '@wagmi/core';
+import {
+	AddChainError,
+	ChainNotConfiguredError,
+	ConnectorNotFoundError,
+	normalizeChainId,
+	SwitchChainError,
+	UserRejectedRequestError
+} from '@wagmi/core';
 import { getClient } from '@wagmi/core/dist/declarations/src/client';
 import { providers } from 'ethers';
 import { getAddress, hexValue } from 'ethers/lib/utils';
-import {
-	AddChainError,
-	allChains,
-	Chain,
-	ChainNotConfiguredError,
-	Connector,
-	ConnectorNotFoundError,
-	ProviderRpcError,
-	ResourceUnavailableError,
-	RpcError,
-	SwitchChainError,
-	UserRejectedRequestError
-} from 'wagmi';
+import { allChains, Chain, Connector } from 'wagmi';
 
 export interface ONTOConnectorOptions {
 	shimDisconnect?: boolean;
@@ -51,10 +46,6 @@ export class ONTOConnector extends Connector<Window['ethereum'], ONTOConnectorOp
 		this.name = name;
 	}
 
-	#isUserRejectedRequestError(error: unknown) {
-		return (<ProviderRpcError>error).code === 4001;
-	}
-
 	public async connect() {
 		try {
 			const provider = await this.getProvider();
@@ -76,8 +67,7 @@ export class ONTOConnector extends Connector<Window['ethereum'], ONTOConnectorOp
 
 			return { account, chain: { id, unsupported }, provider };
 		} catch (error) {
-			if (this.#isUserRejectedRequestError(error)) throw new UserRejectedRequestError(error);
-			if ((<RpcError>error).code === -32002) throw new ResourceUnavailableError(error);
+			if ((<ProviderRpcError>error).code === 4001) throw new UserRejectedRequestError();
 			throw error;
 		}
 	}
@@ -106,7 +96,9 @@ export class ONTOConnector extends Connector<Window['ethereum'], ONTOConnectorOp
 	public async getChainId() {
 		const provider = await this.getProvider();
 		if (!provider) throw new ConnectorNotFoundError();
-		return provider.request({ method: 'eth_chainId' }).then(normalizeChainId);
+		return provider //
+			.request({ method: 'eth_chainId' })
+			.then(normalizeChainId);
 	}
 
 	// eslint-disable-next-line @typescript-eslint/require-await
@@ -151,17 +143,15 @@ export class ONTOConnector extends Connector<Window['ethereum'], ONTOConnectorOp
 				chains.find((x) => x.id === chainId) ?? {
 					id: chainId,
 					name: `Chain ${id}`,
-					network: `${id}`,
 					rpcUrls: { default: '' }
 				}
 			);
 		} catch (error) {
-			const chain = this.chains.find((x) => x.id === chainId);
-			if (!chain) throw new ChainNotConfiguredError();
-
 			// Indicates chain is not added to provider
 			if ((<ProviderRpcError>error).code === 4902) {
 				try {
+					const chain = this.chains.find((x) => x.id === chainId);
+					if (!chain) throw new ChainNotConfiguredError();
 					await provider.request({
 						method: 'wallet_addEthereumChain',
 						params: [
@@ -176,13 +166,10 @@ export class ONTOConnector extends Connector<Window['ethereum'], ONTOConnectorOp
 					});
 					return chain;
 				} catch (addError) {
-					if (this.#isUserRejectedRequestError(addError)) throw new UserRejectedRequestError(error);
 					throw new AddChainError();
 				}
-			}
-
-			if (this.#isUserRejectedRequestError(error)) throw new UserRejectedRequestError(error);
-			throw new SwitchChainError(error);
+			} else if ((<ProviderRpcError>error).code === 4001) throw new UserRejectedRequestError();
+			else throw new SwitchChainError();
 		}
 	}
 
