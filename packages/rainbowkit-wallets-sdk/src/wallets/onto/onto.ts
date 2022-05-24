@@ -9,8 +9,7 @@ export interface OntoOptions {
 export const onto = ({ chains, shimDisconnect }: OntoOptions): Wallet => ({
 	id: 'onto',
 	name: 'ONTO',
-	// @ts-expect-error .png imports are wild.
-	iconUrl: async () => (await import('./onto.png')).default,
+	iconUrl: 'https://tassets.koyo.finance/wallets/onto.png',
 	iconBackground: '#fff',
 	createConnector: () => ({
 		connector: new ONTOConnector({
