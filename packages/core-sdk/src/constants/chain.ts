@@ -11,6 +11,8 @@ export const CHAIN_KEY: { [chainId in ChainId]: ChainKey } = {
 	[ChainId.BOBABASE]: ChainKey.BOBABASE
 };
 
+export const CHAIN_ID_KEY: { [chainKey in ChainKey]: ChainId } = Object.fromEntries(Object.entries(CHAIN_KEY).map((chain) => chain.reverse()));
+
 export const CHAIN_HEX: { [chainId in ChainId]: ChainHex } = {
 	[ChainId.ETHEREUM]: ChainHex.ETHEREUM,
 	[ChainId.MOONBEAM]: ChainHex.MOONBEAM,
