@@ -1,0 +1,17 @@
+{
+	"extends": "../../../tsconfig.base.json",
+	"compilerOptions": {
+		"rootDir": "./",
+		"outDir": "../dist",
+		"composite": true,
+		"tsBuildInfoFile": "../dist/.tsbuildinfo",
+		"emitDeclarationOnly": true,
+		"plugins": [
+			{
+				"exclude": ["*"],
+				"transform": "@zerollup/ts-transform-paths"
+			}
+		]
+	},
+	"include": ["."]
+}

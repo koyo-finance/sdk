@@ -1,0 +1,76 @@
+{
+	"name": "@koyofinance/react-query-typechain",
+	"version": "0.1.0",
+	"description": "",
+	"author": "@koyofinance",
+	"license": "Apache-2.0",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"keywords": [
+		"@koyofinance/react-query-typechain",
+		"react-query-typechain",
+		"koyo",
+		"koyo-finance",
+		"koyofinance",
+		"react",
+		"react-query",
+		"typechain",
+		"core",
+		"ethers",
+		"ethereum"
+	],
+	"scripts": {
+		"lint": "eslint src tests --ext ts --fix -c ../../.eslintrc",
+		"build": "tsup && tsc -b src",
+		"prepack": "yarn build",
+		"bump": "cliff-jumper",
+		"check-update": "cliff-jumper --dry-run"
+	},
+	"files": [
+		"dist/**/*.js*",
+		"dist/**/*.mjs*",
+		"dist/**/*.d*"
+	],
+	"exports": {
+		"import": "./dist/index.js",
+		"require": "./dist/index.js",
+		"types": "./dist/index.d.ts"
+	},
+	"sideEffects": false,
+	"dependencies": {
+		"@zerollup/ts-transform-paths": "^1.7.18",
+		"ethers": "^5.6.8",
+		"lodash.isequal": "^4.5.0",
+		"lodash.isplainobject": "^4.0.6",
+		"lodash.zip": "^4.2.0",
+		"react": "^17.0.2",
+		"react-dom": "^17.0.2",
+		"react-query": "3.39.0",
+		"ts-node": "^10.4.0",
+		"ttypescript": "^1.5.13"
+	},
+	"devDependencies": {
+		"@types/lodash.isequal": "^4.5.5",
+		"@types/lodash.isplainobject": "^4.0.6",
+		"@types/lodash.zip": "^4.2.6",
+		"@types/react": "^17.0.38",
+		"tsup": "^5.12.7",
+		"typescript": "^4.6.4"
+	},
+	"engines": {
+		"node": ">=v14.0.0",
+		"npm": ">=7.0.0"
+	},
+	"homepage": "https://github.com/koyo-finance/sdk/tree/main/packages/react-query-typechain",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/koyo-finance/sdk.git",
+		"directory": "packages/react-query-typechain"
+	},
+	"bugs": {
+		"url": "https://github.com/koyo-finance/sdk/issues"
+	},
+	"publishConfig": {
+		"access": "public"
+	}
+}
