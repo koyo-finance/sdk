@@ -52,7 +52,7 @@ export function useSmartContractTransaction<TContract extends Contract, TMethodN
 				return undefined as unknown as ContractReceipt;
 			}
 
-			const connected = (await contract.connect(signer)) as TContract;
+			const connected = contract.connect(signer) as TContract;
 
 			let finalCallArgs: ContractMethodArgs<TContract, TMethodName> = args;
 
@@ -76,8 +76,7 @@ export function useSmartContractTransaction<TContract extends Contract, TMethodN
 			const transaction: ContractTransaction = await connected[methodName](...finalCallArgs);
 			void onTransactionSubmitted?.(transaction, args);
 
-			// This is not the testing-library wait() method, shoo eslint
-			return transaction?.wait(blockConfirmations);
+			return transaction.wait(blockConfirmations);
 		},
 		onError: async (error: TransactionError, variables) => {
 			if (isTransactionFailedError(error)) {
@@ -86,7 +85,7 @@ export function useSmartContractTransaction<TContract extends Contract, TMethodN
 				// completed transactions.
 				if (process.env.NODE_ENV === 'development' && error.message.includes('Nonce too high.')) {
 					console.error(
-						"Nonces don't match.  Try resetting your metamask account.  Click the account icon -> Settings -> Advanced -> Reset Account"
+						"Nonces don't match. Try resetting your metamask account. Click the account icon -> Settings -> Advanced -> Reset Account"
 					);
 				}
 			}
