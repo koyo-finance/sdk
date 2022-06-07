@@ -6,6 +6,8 @@ import type { ContractFunctionCall, ContractMethodArgs, ContractMethodName, Esti
 import { isOverridesObject } from '../../utils/isOverridesObject';
 
 export interface UseSmartContractTransactionOptions<TContract extends Contract, TMethodName extends ContractMethodName<TContract>> {
+	blockConfirmations?: number;
+
 	/**
 	 * Sets the gas limit on the transaction, overriding anything that was
 	 * provided when the `mutate` function is called. Useful if you need to buffer
@@ -35,7 +37,7 @@ export function useSmartContractTransaction<TContract extends Contract, TMethodN
 	signer: Signer | undefined,
 	options: UseSmartContractTransactionOptions<TContract, TMethodName> = {}
 ): UseSmartContractTransactionResult<TContract, TMethodName> {
-	const { onTransactionMined, onTransactionSubmitted, onError, setGasLimit } = options;
+	const { onTransactionMined, onTransactionSubmitted, onError, setGasLimit, blockConfirmations = 1 } = options;
 
 	return useMutation({
 		mutationFn: async (args: ContractMethodArgs<TContract, TMethodName>): Promise<ContractReceipt> => {
@@ -75,7 +77,7 @@ export function useSmartContractTransaction<TContract extends Contract, TMethodN
 			void onTransactionSubmitted?.(transaction, args);
 
 			// This is not the testing-library wait() method, shoo eslint
-			return transaction?.wait();
+			return transaction?.wait(blockConfirmations);
 		},
 		onError: async (error: TransactionError, variables) => {
 			if (isTransactionFailedError(error)) {
