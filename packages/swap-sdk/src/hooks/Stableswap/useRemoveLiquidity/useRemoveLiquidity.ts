@@ -1,25 +1,25 @@
 import { useSmartContractTransaction } from '@koyofinance/react-query-typechain';
 import type { ContractReceipt, providers, Signer } from 'ethers';
 import type { UseMutationResult } from 'react-query';
-import type { CurveLikeGeneralPool } from '../../../types/contracts/stableswap';
+import type { CurveLikeGeneralPool } from '../../../types';
 import { StableSwap, STABLE_SWAP_FACTORY } from '../core';
 
-export function useAddLiquidity(
+export function useRemoveLiquidity(
 	swapType: StableSwap,
 	signer?: Signer | undefined,
 	provider?: providers.Provider,
 	swap?: string
-): UseMutationResult<ContractReceipt | undefined, unknown, Parameters<CurveLikeGeneralPool['add_liquidity']>> {
+): UseMutationResult<ContractReceipt | undefined, unknown, Parameters<CurveLikeGeneralPool['remove_liquidity']>> {
 	const swapContract = swap && provider ? STABLE_SWAP_FACTORY[swapType].connect(swap, provider) : undefined;
 
-	const addLiquidity = useSmartContractTransaction<CurveLikeGeneralPool, 'add_liquidity'>(
+	const removeLiquidity = useSmartContractTransaction<CurveLikeGeneralPool, 'remove_liquidity'>(
 		swapContract as unknown as CurveLikeGeneralPool,
-		'add_liquidity',
+		'remove_liquidity',
 		signer,
 		{
 			blockConfirmations: 2
 		}
 	);
 
-	return addLiquidity;
+	return removeLiquidity;
 }
