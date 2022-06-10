@@ -5,4 +5,5 @@ export * from './useExchange/useExchange';
 export * from './useGetDY/useGetDY';
 export * from './useGetVirtualPrice/useGetVirtualPrice';
 export * from './useRemoveLiquidity/useRemoveLiquidity';
+export * from './useRemoveLiquidityImbalance/useRemoveLiquidityImbalance';
 export * from './core';
