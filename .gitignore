@@ -39,3 +39,9 @@ package-lock.json
 
 # Ignore Turbo caching
 .turbo
+
+**/src/types/contracts/**/*.ts
+!**/src/types/index.ts
+!**/src/types/contracts/index.ts
+!**/src/types/contracts/.gitkeep
+!**/src/types/contracts/**/*.d.ts

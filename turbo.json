@@ -1,8 +1,13 @@
 {
+	"$schema": "https://turborepo.org/schema.json",
 	"pipeline": {
 		"build": {
-			"dependsOn": ["^build"],
+			"dependsOn": ["generate", "^build"],
 			"outputs": ["dist/**", "build/**"]
+		},
+		"generate": {
+			"dependsOn": [],
+			"outputs": []
 		},
 		"lint": {
 			"dependsOn": [],
