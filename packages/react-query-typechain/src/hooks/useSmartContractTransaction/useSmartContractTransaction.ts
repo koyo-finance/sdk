@@ -24,7 +24,7 @@ export interface UseSmartContractTransactionOptions<TContract extends Contract, 
 	onError?: (error: TransactionError) => void | Promise<void>;
 }
 
-type UseSmartContractTransactionResult<TContract extends Contract, TMethodName extends ContractMethodName<TContract>> = UseMutationResult<
+export type UseSmartContractTransactionResult<TContract extends Contract, TMethodName extends ContractMethodName<TContract>> = UseMutationResult<
 	ContractReceipt | undefined,
 	unknown,
 	ContractMethodArgs<TContract, TMethodName>
