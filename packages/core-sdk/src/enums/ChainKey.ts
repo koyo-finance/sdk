@@ -6,5 +6,6 @@ export enum ChainKey {
 	BOBA = 'boba',
 	BOBABEAM = 'bobabeam',
 	BOBA_RINKEBY = 'boba-rinkeby',
-	BOBABASE = 'bobabase'
+	BOBABASE = 'bobabase',
+	AURORA = 'aurora'
 }
