@@ -12,6 +12,7 @@ export interface UseSmartContractReadCallOptions<
 	callArgs?: ContractMethodArgs<TContract, TMethodName>;
 	enabled?: boolean;
 	staleTime?: number;
+	chainId?: number;
 
 	keepPreviousData?: boolean;
 	select?: (data: TReturnType) => TSelect;
@@ -48,7 +49,7 @@ export function makeSmartContractReadCallUseQueryOptions<
 ): UseQueryOptions<TContractData, unknown, TData> {
 	const { enabled = true, callArgs, staleTime, select, keepPreviousData } = options || {};
 
-	const queryKey = makeSmartContractReadCallQueryKey<TContract, TMethodName>(contract?.address, methodName, callArgs);
+	const queryKey = makeSmartContractReadCallQueryKey<TContract, TMethodName>(contract?.address, methodName, callArgs, options?.chainId);
 
 	const queryFn = async (): Promise<TContractData> => {
 		const finalArgs = callArgs || [];
@@ -75,14 +76,16 @@ export function makeSmartContractReadCallUseQueryOptions<
 export function makeSmartContractReadCallQueryKey<TContract extends Contract, TMethodName extends ContractMethodName<TContract>>(
 	contractAddress: string | undefined,
 	methodName: TMethodName,
-	callArgs: Parameters<TContract['functions'][TMethodName]> | undefined
+	callArgs: Parameters<TContract['functions'][TMethodName]> | undefined,
+	chainId?: number
 ): [
 	string,
 	TMethodName,
 	string | undefined,
+	number | undefined,
 	{
 		callArgs: Parameters<TContract['functions'][TMethodName]> | undefined;
 	}
 ] {
-	return ['contractCall', methodName, contractAddress, { callArgs }];
+	return ['contractCall', methodName, contractAddress, chainId, { callArgs }];
 }
