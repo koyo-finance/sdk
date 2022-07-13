@@ -7,5 +7,6 @@ export enum ChainHex {
 	BOBABEAM = '0x50e',
 	BOBA_RINKEBY = '0x1c',
 	BOBABASE = '0x511',
+	MOONRIVER = '0x505',
 	AURORA = '0x4e454152'
 }
