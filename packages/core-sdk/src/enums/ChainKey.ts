@@ -1,5 +1,6 @@
 export enum ChainKey {
 	ETHEREUM = 'ethereum',
+	MOONRIVER = 'moonriver',
 	MOONBEAM = 'moonbeam',
 	RINKEBY = 'rinkeby',
 	MOONBASE = 'moonbase',
@@ -7,6 +8,9 @@ export enum ChainKey {
 	BOBABEAM = 'bobabeam',
 	BOBA_RINKEBY = 'boba-rinkeby',
 	BOBABASE = 'bobabase',
-	MOONRIVER = 'moonriver',
-	AURORA = 'aurora'
+	AURORA = 'aurora',
+	POLYGON = 'polygon',
+	FANTOM = 'fantom',
+	BOBAOPERA = 'bobaopera',
+	AVALANCHE = 'avalanche'
 }
