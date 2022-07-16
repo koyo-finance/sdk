@@ -15,7 +15,7 @@ export const CHAIN_MULTICALL_ONE: { [C in ChainId]?: string } = {
 	[ChainId.MOONRIVER]: moonriver.MOONRIVER_MULTICALL_ONE_ADDRESS,
 	[ChainId.POLYGON]: polygon.POLYGON_MULTICALL_ONE_ADDRESS
 };
-export const CHAIN_NATIVE_WEAPPED_ASSET: { [C in ChainId]?: string } = {
+export const CHAIN_NATIVE_WRAPPED_ASSET: { [C in ChainId]?: string } = {
 	[ChainId.BOBA]: boba.BOBA_WETH_ADDRESS,
 	[ChainId.AURORA]: aurora.AURORA_WETH_ADDRESS,
 	[ChainId.MOONRIVER]: moonriver.MOONRIVER_WETH_ADDRESS,
