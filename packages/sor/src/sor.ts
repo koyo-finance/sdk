@@ -3,7 +3,7 @@ import type { Provider } from '@ethersproject/abstract-provider';
 import { RouteProposer } from './routes/proposer';
 import type { KoyoSorConfig } from './types/sor';
 
-export class KoyoSor extends SOR {
+export class KoyoSOR extends SOR {
 	public constructor(provider: Provider, config: KoyoSorConfig, poolDataService: PoolDataService, tokenPriceService: TokenPriceService) {
 		super(provider, config, poolDataService, tokenPriceService);
 
