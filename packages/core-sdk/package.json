@@ -1,9 +1,9 @@
 {
 	"name": "@koyofinance/core-sdk",
-	"version": "0.2.0",
+	"version": "0.3.0",
 	"description": "",
 	"author": "@koyofinance",
-	"license": "UNLICENSED",
+	"license": "MIT",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
 	"keywords": [
@@ -17,7 +17,11 @@
 		"boba",
 		"ethereum",
 		"bobabeam",
-		"moonbeam"
+		"moonbeam",
+		"matic",
+		"polygon",
+		"aurora",
+		"moonriver"
 	],
 	"scripts": {
 		"lint": "eslint src tests --ext ts --fix -c ../../.eslintrc",
