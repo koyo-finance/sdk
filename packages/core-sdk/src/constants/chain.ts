@@ -1,4 +1,4 @@
-import { ChainHex, ChainId, ChainKey } from '../enums';
+import { ChainDisplayName, ChainHex, ChainId, ChainKey } from '../enums';
 
 export const CHAIN_KEY: { [chainId in ChainId]: ChainKey } = {
 	[ChainId.ETHEREUM]: ChainKey.ETHEREUM,
@@ -16,8 +16,24 @@ export const CHAIN_KEY: { [chainId in ChainId]: ChainKey } = {
 	[ChainId.BOBAOPERA]: ChainKey.BOBAOPERA,
 	[ChainId.AVALANCHE]: ChainKey.AVALANCHE
 };
-
 export const CHAIN_ID_KEY: { [chainKey in ChainKey]: ChainId } = Object.fromEntries(Object.entries(CHAIN_KEY).map((chain) => chain.reverse()));
+
+export const CHAIN_DISPLAY_NAME: { [chainId in ChainId]: ChainDisplayName } = {
+	[ChainId.ETHEREUM]: ChainDisplayName.ETHEREUM,
+	[ChainId.MOONRIVER]: ChainDisplayName.MOONRIVER,
+	[ChainId.MOONBEAM]: ChainDisplayName.MOONBEAM,
+	[ChainId.RINKEBY]: ChainDisplayName.RINKEBY,
+	[ChainId.MOONBASE]: ChainDisplayName.MOONBASE,
+	[ChainId.BOBA]: ChainDisplayName.BOBA,
+	[ChainId.BOBABEAM]: ChainDisplayName.BOBABEAM,
+	[ChainId.BOBA_RINKEBY]: ChainDisplayName.BOBA_RINKEBY,
+	[ChainId.BOBABASE]: ChainDisplayName.BOBABASE,
+	[ChainId.AURORA]: ChainDisplayName.AURORA,
+	[ChainId.POLYGON]: ChainDisplayName.POLYGON,
+	[ChainId.FANTOM]: ChainDisplayName.FANTOM,
+	[ChainId.BOBAOPERA]: ChainDisplayName.BOBAOPERA,
+	[ChainId.AVALANCHE]: ChainDisplayName.AVALANCHE
+};
 
 export const CHAIN_HEX: { [chainId in ChainId]: ChainHex } = {
 	[ChainId.ETHEREUM]: ChainHex.ETHEREUM,
