@@ -1,4 +1,4 @@
-import { ChainId } from '@koyofinance/core-sdk';
+import { ChainId } from '../enums';
 
 export const BOBA_BLOCKS_SUBGRAPH_URL = 'https://api.thegraph.com/subgraphs/name/koyo-finance/boba-blocks';
 export const AURORA_BLOCKS_SUBGRAPH_URL = 'https://api.thegraph.com/subgraphs/name/koyo-finance/aurora-blocks';
