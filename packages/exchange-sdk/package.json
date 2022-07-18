@@ -1,6 +1,6 @@
 {
 	"name": "@koyofinance/exchange-sdk",
-	"version": "0.1.1",
+	"version": "1.0.0",
 	"description": "",
 	"author": "@koyofinance",
 	"license": "GPL-3.0-only",
@@ -24,7 +24,11 @@
 		"build": "tsup && tsc -b src",
 		"prepack": "yarn build",
 		"bump": "cliff-jumper",
-		"check-update": "cliff-jumper --dry-run"
+		"check-update": "cliff-jumper --dry-run",
+		"generate:typechain:exchange": "typechain --target ethers-v5 --always-generate-overloads --discriminate-types --out-dir ./src/types/contracts/exchange './src/constants/abis/exchange/*.json'",
+		"generate:typechain:util": "typechain --target ethers-v5 --always-generate-overloads --discriminate-types --out-dir ./src/types/contracts/util './src/constants/abis/util/*.json'",
+		"generate:graphql": "graphql-codegen --config codegen.yml -r dotenv/config",
+		"generate": "yarn generate:graphql && yarn generate:typechain:exchange && yarn generate:typechain:util"
 	},
 	"files": [
 		"dist/**/*.js*",
@@ -38,11 +42,27 @@
 	},
 	"sideEffects": false,
 	"dependencies": {
+		"@balancer-labs/sor": "^4.0.1-beta.1",
+		"@ethersproject/providers": "^5.6.8",
 		"@koyofinance/core-sdk": "workspace:^",
+		"@koyofinance/sor": "workspace:^",
+		"@sapphire/fetch": "^2.4.1",
+		"lodash.set": "^4.3.2",
 		"tslib": "^2.4.0"
 	},
 	"devDependencies": {
+		"@graphql-codegen/add": "^3.2.0",
+		"@graphql-codegen/cli": "^2.8.1",
+		"@graphql-codegen/fragment-matcher": "^3.3.0",
+		"@graphql-codegen/schema-ast": "^2.5.0",
+		"@graphql-codegen/typescript-document-nodes": "^2.3.1",
+		"@graphql-codegen/typescript-graphql-request": "^4.5.1",
+		"@graphql-codegen/typescript-operations": "^2.5.1",
+		"@typechain/ethers-v5": "^10.1.0",
+		"@types/lodash.set": "^4.3.7",
+		"graphql": "^16.5.0",
 		"tsup": "^5.12.7",
+		"typechain": "^8.1.0",
 		"typescript": "^4.6.4"
 	},
 	"engines": {
