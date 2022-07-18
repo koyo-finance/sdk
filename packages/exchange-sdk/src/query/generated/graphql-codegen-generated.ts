@@ -1,4 +1,4 @@
-/* tslint:disable */ /* eslint-disable @typescript-eslint/consistent-type-definitions */
+/* tslint:disable */ /* eslint-disable @typescript-eslint/consistent-type-definitions,@typescript-eslint/ban-ts-comment */ // @ts-nocheck Welp.
 import { GraphQLClient } from 'graphql-request';
 import * as Dom from 'graphql-request/dist/types.dom';
 import gql from 'graphql-tag';

@@ -11,7 +11,7 @@ generates:
   src/query/generated/graphql-codegen-generated.ts:
     plugins:
       - add:
-          content: "/* tslint:disable *//* eslint-disable @typescript-eslint/consistent-type-definitions */"
+          content: "/* tslint:disable */ /* eslint-disable @typescript-eslint/consistent-type-definitions,@typescript-eslint/ban-ts-comment */ // @ts-nocheck Welp."
       - typescript
       - typescript-operations
       - typescript-graphql-request
