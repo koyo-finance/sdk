@@ -1796,6 +1796,7 @@ __metadata:
     "@typechain/ethers-v5": ^10.1.0
     "@types/lodash.set": ^4.3.7
     graphql: ^16.5.0
+    graphql-tag: ^2.12.6
     lodash.set: ^4.3.2
     tslib: ^2.4.0
     tsup: ^5.12.7
@@ -4753,7 +4754,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"graphql-tag@npm:^2.11.0":
+"graphql-tag@npm:^2.11.0, graphql-tag@npm:^2.12.6":
   version: 2.12.6
   resolution: "graphql-tag@npm:2.12.6"
   dependencies:
