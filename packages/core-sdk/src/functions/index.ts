@@ -4,6 +4,7 @@ export * from './formatAmount';
 export * from './formatBalance';
 export * from './formatDollarAmount';
 export * from './fromBigNumber';
+export * from './getExplorerLink';
 export * from './reconstructTokenListToLowerCase';
 export * from './shortenHex';
 export * from './toBigNumber';

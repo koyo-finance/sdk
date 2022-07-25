@@ -52,7 +52,7 @@ export const CHAIN_HEX: { [chainId in ChainId]: ChainHex } = {
 	[ChainId.AVALANCHE]: ChainHex.AVALANCHE
 };
 
-export const CHAIN_EXPLORER: { [chainId in ChainId]: BlockExplorer } = {
+export const CHAIN_EXPLORER_INFO: { [chainId in ChainId]: BlockExplorer } = {
 	[ChainId.ETHEREUM]: { url: 'https://etherscan.io/', name: 'Etherscan' },
 	[ChainId.MOONRIVER]: { url: 'https://moonriver.moonscan.io/', name: 'Moonscan - Moonriver' },
 	[ChainId.MOONBEAM]: { url: 'https://moonscan.io/', name: 'Moonscan' },
