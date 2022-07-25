@@ -24,7 +24,9 @@
 		"build": "tsup && tsc -b src",
 		"prepack": "yarn build",
 		"bump": "cliff-jumper",
-		"check-update": "cliff-jumper --dry-run"
+		"check-update": "cliff-jumper --dry-run",
+		"generate:typechain:exchange": "typechain --target ethers-v5 --always-generate-overloads --discriminate-types --out-dir ./src/types/contracts/exchange './src/constants/abis/exchange/*.json'",
+		"generate": "yarn generate:typechain:exchange"
 	},
 	"files": [
 		"dist/**/*.js*",
@@ -41,10 +43,13 @@
 		"@balancer-labs/sor": "^4.0.1-beta.1",
 		"@ethersproject/abstract-provider": "^5.6.1",
 		"@ethersproject/constants": "^5.6.1",
+		"ethers": "^5.6.9",
 		"tslib": "^2.4.0"
 	},
 	"devDependencies": {
+		"@typechain/ethers-v5": "^10.1.0",
 		"tsup": "^5.12.7",
+		"typechain": "^8.1.0",
 		"typescript": "^4.6.4"
 	},
 	"engines": {
