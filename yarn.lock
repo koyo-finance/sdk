@@ -1831,6 +1831,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@koyofinance/momiji-sdk@workspace:packages/momiji-sdk":
+  version: 0.0.0-use.local
+  resolution: "@koyofinance/momiji-sdk@workspace:packages/momiji-sdk"
+  dependencies:
+    "@koyofinance/core-sdk": "workspace:^"
+    tslib: ^2.4.0
+    tsup: ^5.12.7
+    typescript: ^4.6.4
+  languageName: unknown
+  linkType: soft
+
 "@koyofinance/react-query-typechain@workspace:packages/react-query-typechain":
   version: 0.0.0-use.local
   resolution: "@koyofinance/react-query-typechain@workspace:packages/react-query-typechain"
