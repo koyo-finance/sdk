@@ -1,12 +1,5 @@
 import { ChainId, ExplorerTarget } from '../enums';
-
-export interface ExplorerDefinition {
-	[ExplorerTarget.TRANSACTION]: (txHash: string) => string;
-	[ExplorerTarget.TOKEN]: (tokenAddress: string) => string;
-	[ExplorerTarget.BLOCK]: (blockNumber: string) => string;
-	[ExplorerTarget.ADDRESS]: (address: string) => string;
-	fallback?: (data: string) => string;
-}
+import type { ExplorerDefinition } from '../types';
 
 export const CHAIN_EXPLORER: { [C in ChainId]: ExplorerDefinition } = {
 	[ChainId.ETHEREUM]: {

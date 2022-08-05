@@ -1,4 +1,5 @@
 import { ChainDisplayName, ChainHex, ChainId, ChainKey } from '../enums';
+import type { BasicBlockExplorer } from '../types';
 
 export const CHAIN_KEY: { [chainId in ChainId]: ChainKey } = {
 	[ChainId.ETHEREUM]: ChainKey.ETHEREUM,
@@ -40,7 +41,7 @@ export const CHAIN_HEX: { [chainId in ChainId]: ChainHex } = {
 	[ChainId.AVALANCHE]: ChainHex.AVALANCHE
 };
 
-export const CHAIN_EXPLORER_INFO: { [chainId in ChainId]: BlockExplorer } = {
+export const CHAIN_EXPLORER_INFO: { [chainId in ChainId]: BasicBlockExplorer } = {
 	[ChainId.ETHEREUM]: { url: 'https://etherscan.io/', name: 'Etherscan' },
 	[ChainId.MOONRIVER]: { url: 'https://moonriver.moonscan.io/', name: 'Moonscan - Moonriver' },
 	[ChainId.MOONBEAM]: { url: 'https://moonscan.io/', name: 'Moonscan' },
@@ -52,8 +53,3 @@ export const CHAIN_EXPLORER_INFO: { [chainId in ChainId]: BlockExplorer } = {
 	[ChainId.BOBAOPERA]: { url: '', name: 'BlockExplorer - BobaOpera' },
 	[ChainId.AVALANCHE]: { url: 'https://snowtrace.io/', name: 'Snowtrace' }
 };
-
-export interface BlockExplorer {
-	url: string;
-	name?: string;
-}
