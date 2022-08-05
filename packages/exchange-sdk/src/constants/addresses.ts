@@ -10,18 +10,7 @@ export * from './addresses/boba';
 export * from './addresses/moonriver';
 export * from './addresses/polygon';
 
-export const CHAIN_MULTICALL_ONE: { [C in SupportedChainsList]: string } = {
-	[ChainId.BOBA]: boba.BOBA_MULTICALL_ONE_ADDRESS,
-	[ChainId.AURORA]: aurora.AURORA_MULTICALL_ONE_ADDRESS,
-	[ChainId.MOONRIVER]: moonriver.MOONRIVER_MULTICALL_ONE_ADDRESS,
-	[ChainId.POLYGON]: polygon.POLYGON_MULTICALL_ONE_ADDRESS
-};
-export const CHAIN_NATIVE_WRAPPED_ASSET: { [C in SupportedChainsList]: string } = {
-	[ChainId.BOBA]: boba.BOBA_WETH_ADDRESS,
-	[ChainId.AURORA]: aurora.AURORA_WETH_ADDRESS,
-	[ChainId.MOONRIVER]: moonriver.MOONRIVER_WETH_ADDRESS,
-	[ChainId.POLYGON]: polygon.POLYGON_WETH_ADDRESS
-};
+export { CHAIN_MULTICALL_ONE, CHAIN_NATIVE_WRAPPED_ASSET } from '@koyofinance/core-sdk';
 
 export const CHAIN_VAULT: { [C in SupportedChainsList]: string } = {
 	[ChainId.BOBA]: boba.BOBA_VAULT_ADDRESS,
