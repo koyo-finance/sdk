@@ -1,0 +1,2 @@
+export const KOYO_GP_V2_SETTLEMENT_SIGNING_NAME = 'Koyo Finance';
+export const KOYO_GP_V2_SETTLEMENT_SIGNING_VERSION = 'v1';

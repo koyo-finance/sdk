@@ -1838,7 +1838,9 @@ __metadata:
   resolution: "@koyofinance/momiji-sdk@workspace:packages/momiji-sdk"
   dependencies:
     "@ethersproject/abstract-signer": ^5.6.2
+    "@ethersproject/constants": ^5.6.1
     "@koyofinance/core-sdk": "workspace:^"
+    "@sapphire/utilities": ^3.9.0
     "@typechain/ethers-v5": ^10.1.0
     ethers: ^5.6.9
     tslib: ^2.4.0
@@ -1999,6 +2001,13 @@ __metadata:
   version: 3.6.2
   resolution: "@sapphire/utilities@npm:3.6.2"
   checksum: 71210753b446f3f2835dd9d28fb10767f4c6f005b465eea179082d9f2c071acb7dcd2aebdf7c4974b26aad3ab2374a1dd168a66371b06bd65f248bbca4a90cda
+  languageName: node
+  linkType: hard
+
+"@sapphire/utilities@npm:^3.9.0":
+  version: 3.9.0
+  resolution: "@sapphire/utilities@npm:3.9.0"
+  checksum: 2d8fdf173abc39d7f8bdeb593daebe8b1e2fb71ffa91951cb4ef57845eec45938bfd1d4f5db2e78a0b9ab212c0d033a4fbefcf6335a28afb8a1cea7f44926160
   languageName: node
   linkType: hard
 
