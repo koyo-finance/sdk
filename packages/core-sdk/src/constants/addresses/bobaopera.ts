@@ -1,0 +1,2 @@
+export const BOBAOPERA_MULTICALL_ONE_ADDRESS = '';
+export const BOBAOPERA_WETH_ADDRESS = '';

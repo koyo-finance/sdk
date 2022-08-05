@@ -27,18 +27,6 @@ export const CHAIN_EXPLORER: { [C in ChainId]: ExplorerDefinition } = {
 		[ExplorerTarget.BLOCK]: (blockNumber: string) => `https://moonscan.io/block/${blockNumber}`,
 		[ExplorerTarget.ADDRESS]: (address: string) => `https://moonscan.io/address/${address}`
 	},
-	[ChainId.RINKEBY]: {
-		[ExplorerTarget.TRANSACTION]: (txHash: string) => `https://rinkeby.etherscan.io/tx/${txHash}`,
-		[ExplorerTarget.TOKEN]: (tokenAddress: string) => `https://rinkeby.etherscan.io/token/${tokenAddress}`,
-		[ExplorerTarget.BLOCK]: (blockNumber: string) => `https://rinkeby.etherscan.io/block/${blockNumber}`,
-		[ExplorerTarget.ADDRESS]: (address: string) => `https://rinkeby.etherscan.io/address/${address}`
-	},
-	[ChainId.MOONBASE]: {
-		[ExplorerTarget.TRANSACTION]: (txHash: string) => `https://moonbase.moonscan.io/tx/${txHash}`,
-		[ExplorerTarget.TOKEN]: (tokenAddress: string) => `https://moonbase.moonscan.io/token/${tokenAddress}`,
-		[ExplorerTarget.BLOCK]: (blockNumber: string) => `https://moonbase.moonscan.io/block/${blockNumber}`,
-		[ExplorerTarget.ADDRESS]: (address: string) => `https://moonbase.moonscan.io/address/${address}`
-	},
 	[ChainId.BOBA]: {
 		[ExplorerTarget.TRANSACTION]: (txHash: string) => `https://bobascan.com/tx/${txHash}`,
 		[ExplorerTarget.TOKEN]: (tokenAddress: string) => `https://bobascan.com/token/${tokenAddress}`,
@@ -50,18 +38,6 @@ export const CHAIN_EXPLORER: { [C in ChainId]: ExplorerDefinition } = {
 		[ExplorerTarget.TOKEN]: () => ``,
 		[ExplorerTarget.BLOCK]: () => ``,
 		[ExplorerTarget.ADDRESS]: () => ``
-	},
-	[ChainId.BOBA_RINKEBY]: {
-		[ExplorerTarget.TRANSACTION]: (txHash: string) => `https://testnet.bobascan.com/tx/${txHash}`,
-		[ExplorerTarget.TOKEN]: (tokenAddress: string) => `https://testnet.bobascan.com/token/${tokenAddress}`,
-		[ExplorerTarget.BLOCK]: (blockNumber: string) => `https://testnet.bobascan.com/tx/${blockNumber}`,
-		[ExplorerTarget.ADDRESS]: (address: string) => `https://testnet.bobascan.com/address/${address}`
-	},
-	[ChainId.BOBABASE]: {
-		[ExplorerTarget.TRANSACTION]: (txHash: string) => `https://blockexplorer.bobabase.boba.network/tx/${txHash}`,
-		[ExplorerTarget.TOKEN]: (tokenAddress: string) => `https://blockexplorer.bobabase.boba.network/token/${tokenAddress}`,
-		[ExplorerTarget.BLOCK]: (blockNumber: string) => `https://blockexplorer.bobabase.boba.network/blocks/${blockNumber}`,
-		[ExplorerTarget.ADDRESS]: (address: string) => `https://blockexplorer.bobabase.boba.network/address/${address}`
 	},
 	[ChainId.AURORA]: {
 		[ExplorerTarget.TRANSACTION]: (txHash: string) => `https://aurorascan.dev/tx/${txHash}`,
