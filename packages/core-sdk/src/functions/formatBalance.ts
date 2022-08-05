@@ -1,5 +1,5 @@
-import type { BigNumberish } from 'ethers';
-import { formatUnits } from 'ethers/lib/utils';
+import type { BigNumberish } from '@ethersproject/bignumber';
+import { formatUnits } from '@ethersproject/units';
 
 export function formatBalance(
 	val: BigNumberish,
