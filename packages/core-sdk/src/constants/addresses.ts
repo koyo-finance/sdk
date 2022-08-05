@@ -45,3 +45,6 @@ export const CHAIN_NATIVE_WRAPPED_ASSET: { [C in ChainId]: string } = {
 	[ChainId.BOBAOPERA]: bobaopera.BOBAOPERA_WETH_ADDRESS,
 	[ChainId.AVALANCHE]: avalanche.AVALANCHE_WETH_ADDRESS
 };
+
+export const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000';
+export const ETH_E_ADDRESS = '0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE';

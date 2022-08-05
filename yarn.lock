@@ -1839,9 +1839,11 @@ __metadata:
   dependencies:
     "@ethersproject/abstract-signer": ^5.6.2
     "@koyofinance/core-sdk": "workspace:^"
+    "@typechain/ethers-v5": ^10.1.0
     ethers: ^5.6.9
     tslib: ^2.4.0
     tsup: ^5.12.7
+    typechain: ^8.1.0
     typescript: ^4.6.4
   languageName: unknown
   linkType: soft
