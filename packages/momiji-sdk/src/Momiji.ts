@@ -102,7 +102,17 @@ export class Momiji {
 			}
 		} as const;
 
-		const actions = [...approvalAction, createOrderAction] as const;
+		const submitOrderAction = {
+			type: 'submit',
+			submit: async (signedOrder: SigningResult): Promise<void> => {
+				await this.orderbookService.sendOrder({
+					order: { ...order, ...signedOrder },
+					owner: '0x1811be0994930fe9480eaede25165608b093ad7a'
+				});
+			}
+		} as const;
+
+		const actions = [...approvalAction, createOrderAction, submitOrderAction] as const;
 
 		return {
 			actions,

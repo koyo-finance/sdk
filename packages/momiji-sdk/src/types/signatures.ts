@@ -10,6 +10,6 @@ export type Signer = ethers.Signer & {
 };
 
 export interface SigningResult {
-	signature?: string;
+	signature: string;
 	signingScheme: SigningScheme;
 }

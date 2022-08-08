@@ -21,19 +21,25 @@ export interface CreateOrderAction {
 	createOrder: () => Promise<CreateOrderActionResult>;
 }
 
+export interface CancelOrderActionResult extends SigningResult {}
+
 export interface CancelOrderAction {
 	type: 'cancel';
 	getMessageToSign: () => Promise<string>;
-	// TODO: Add proper type
-	cancelOrder: () => Promise<unknown>;
+	cancelOrder: () => Promise<CancelOrderActionResult>;
+}
+
+export interface SubmitAction {
+	type: 'submit';
+	submit: (signature: SigningResult) => Promise<void>;
 }
 
 export type TransactionAction = ApprovalAction;
 
-export type CreateOrderActions = readonly [...ApprovalAction[], CreateOrderAction];
+export type CreateOrderActions = readonly [...ApprovalAction[], CreateOrderAction, SubmitAction];
 export type CancelOrderActions = readonly [...ApprovalAction[], CancelOrderAction];
 
-export interface OrderUseCase<T extends CreateOrderAction | CancelOrderAction> {
+export interface OrderUseCase<T extends CreateOrderAction | CancelOrderAction | SubmitAction> {
 	actions: T extends CreateOrderAction ? CreateOrderActions : CancelOrderActions;
 	executeAllActions: () => Promise<T extends CreateOrderAction ? CreateOrderActionResult : ContractTransaction>;
 }

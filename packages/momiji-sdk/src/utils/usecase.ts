@@ -1,5 +1,14 @@
 import type { CallOverrides, Contract, Overrides, PayableOverrides } from 'ethers';
-import type { CancelOrderAction, ContractMethodReturnType, CreateOrderAction, OrderUseCase, TransactionMethods } from '../types';
+import type {
+	CancelOrderAction,
+	CancelOrderActionResult,
+	ContractMethodReturnType,
+	CreateOrderAction,
+	CreateOrderActionResult,
+	OrderUseCase,
+	SubmitAction,
+	TransactionMethods
+} from '../types';
 
 const instanceOfOverrides = <T extends Overrides | PayableOverrides | CallOverrides>(obj?: Record<string, any>): obj is T => {
 	const validKeys = [
@@ -58,7 +67,7 @@ export const getTransactionMethods = <T extends Contract, U extends keyof T['fun
 	};
 };
 
-export const executeAllActions = async <T extends CreateOrderAction | CancelOrderAction>(actions: OrderUseCase<T>['actions']) => {
+export const executeAllActions = async <T extends CreateOrderAction | CancelOrderAction | SubmitAction>(actions: OrderUseCase<T>['actions']) => {
 	for (let i = 0; i < actions.length - 1; i++) {
 		const action = actions[i];
 		if (action.type === 'approval') {
@@ -67,9 +76,20 @@ export const executeAllActions = async <T extends CreateOrderAction | CancelOrde
 		}
 	}
 
-	const finalAction = actions[actions.length - 1] as T;
+	let finalAction = actions[actions.length - 1] as T;
+	if (finalAction.type === 'submit') {
+		const submitAction = finalAction as SubmitAction;
+		finalAction = actions[actions.length - 2] as T;
 
-	return finalAction.type === 'create' //
-		? finalAction.createOrder()
-		: finalAction.cancelOrder();
+		// The 2nd to last action will never be a submit... or well it shouldn't.
+		const signAction: Promise<CreateOrderActionResult | CancelOrderActionResult> =
+			finalAction.type === 'create' ? finalAction.createOrder() : (finalAction as CancelOrderAction).cancelOrder();
+		const signActionResult = await signAction;
+
+		await submitAction.submit(signActionResult);
+
+		return signActionResult;
+	}
+
+	return finalAction.type === 'create' ? finalAction.createOrder() : finalAction.cancelOrder();
 };
