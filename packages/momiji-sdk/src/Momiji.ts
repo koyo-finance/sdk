@@ -13,6 +13,7 @@ import {
 } from './constants';
 import { SigningScheme } from './enums';
 import { getBalanceAndApproval } from './functions';
+import { MomijiOrderbookApi, MomijiSubgraphApi } from './services';
 import type {
 	ApprovalAction,
 	CreateOrderAction,
@@ -31,8 +32,11 @@ import { executeAllActions, getTransactionMethods } from './utils';
 export class Momiji {
 	public readonly chainId: SupportedChainsList;
 	public readonly provider: providers.Provider;
-	readonly #signer?: Signer;
 
+	public readonly orderbookService: MomijiOrderbookApi;
+	public readonly subgraphService: MomijiSubgraphApi;
+
+	readonly #signer?: Signer;
 	private readonly configuration: Required<MomijiConfiguration>;
 	private readonly appdata: string;
 
@@ -53,6 +57,8 @@ export class Momiji {
 		if (!provider) throw new Error('Either a provider or custom signer with provider must be provided');
 
 		this.provider = provider;
+		this.orderbookService = new MomijiOrderbookApi(chainId, this.configuration.env, this.appdata);
+		this.subgraphService = new MomijiSubgraphApi(chainId);
 	}
 
 	public async createOrder(order: UnsignedUserOrder, signerAddress?: string): Promise<OrderUseCase<CreateOrderAction>> {
