@@ -1,8 +1,8 @@
 import type { SupportedChainId } from '@cowprotocol/cow-sdk';
-import { CowApi } from '@cowprotocol/cow-sdk/dist/api';
-import type { Context, Env } from '@cowprotocol/cow-sdk/dist/utils/context';
 import type { ChainId } from '@koyofinance/core-sdk';
 import { CHAIN_MOMIJI_ORDERBOOK_API } from '../../constants';
+import type { Context, Env } from '../../types';
+import { CowApi } from './cow';
 
 export class MomijiOrderbookApi extends CowApi {
 	public constructor(chainId: ChainId, env: Env, appDataHash: string) {

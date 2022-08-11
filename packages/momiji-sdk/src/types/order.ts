@@ -1,5 +1,5 @@
 import type { BigNumberish, BytesLike } from 'ethers';
-import type { OrderBalance, OrderKind } from '../enums';
+import type { OrderBalance, OrderKind, SigningScheme } from '../enums';
 
 /**
  * A timestamp value.
@@ -93,4 +93,14 @@ export interface OrderCancellation {
 	 * The unique identifier of the order to be cancelled.
 	 */
 	orderUid: BytesLike;
+}
+
+export interface OrderCreation extends UnsignedOrder {
+	signingScheme: SigningScheme; // signed method
+
+	// Signature is used for:
+	//  - Signature: EIP-712,ETHSIGN
+	//  - Owner address: for PRESIGN
+	signature: string; // 65 bytes encoded as hex without `0x` prefix. r + s + v from the spec
+	quoteId?: number | null;
 }

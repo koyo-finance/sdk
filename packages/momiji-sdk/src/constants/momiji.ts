@@ -5,3 +5,5 @@ export const MOMIJI_DEFAULT_CONFIGURATION: Required<MomijiConfiguration> = {
 	throwOnInsufficientApproval: false,
 	env: 'prod'
 };
+
+export const logPrefix = 'momiji-sdk:';

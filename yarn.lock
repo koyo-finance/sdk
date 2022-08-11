@@ -1901,6 +1901,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@koyofinance/momiji-sdk@workspace:packages/momiji-sdk"
   dependencies:
+    "@cowprotocol/contracts": ^1.3.1
     "@cowprotocol/cow-sdk": ^1.0.0-RC.2
     "@ethersproject/abstract-signer": ^5.6.2
     "@ethersproject/constants": ^5.6.1
@@ -1909,7 +1910,10 @@ __metadata:
     "@typechain/ethers-v5": ^10.1.0
     cross-fetch: ^3.1.5
     ethers: ^5.6.9
+    graphql: ^16.5.0
     graphql-request: ^4.3.0
+    graphql-tag: ^2.12.6
+    loglevel: ^1.8.0
     tslib: ^2.4.0
     tsup: ^5.12.7
     typechain: ^8.1.0

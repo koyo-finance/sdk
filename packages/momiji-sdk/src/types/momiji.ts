@@ -1,4 +1,4 @@
-import type { Env } from '@cowprotocol/cow-sdk/dist/utils/context';
+import type { Env } from './cow';
 
 export interface MomijiConfiguration {
 	throwOnInsufficientBalance?: boolean;

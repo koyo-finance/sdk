@@ -1,11 +1,10 @@
 import type { SupportedChainId } from '@cowprotocol/cow-sdk';
-import { CowSubgraphApi } from '@cowprotocol/cow-sdk/dist/api';
-import type { Context } from '@cowprotocol/cow-sdk/dist/utils/context';
 import { ChainId } from '@koyofinance/core-sdk';
 import fetch from 'cross-fetch';
 import { GraphQLClient } from 'graphql-request';
 import { CHAIN_MOMIJI_SUBGRAPH } from '../../constants';
-import type { SupportedChainsList } from '../../types';
+import type { Context, SupportedChainsList } from '../../types';
+import { CowSubgraphApi } from './cow';
 
 export class MomijiSubgraphApi extends CowSubgraphApi {
 	public readonly API_NAME = 'Momiji Protocol Subgraph';
