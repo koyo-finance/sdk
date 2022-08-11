@@ -4,6 +4,7 @@ export * from './flattenArray';
 export * from './formatAmount';
 export * from './formatBalance';
 export * from './formatDollarAmount';
+export * from './formatTime';
 export * from './fromBigNumber';
 export * from './getErrorMessage';
 export * from './getExplorerLink';
