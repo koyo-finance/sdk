@@ -7,7 +7,7 @@ import { useQuery } from 'react-query';
 
 export type OptionalQouteParams = Partial<Pick<QuoteQuery, 'kind' | 'partiallyFillable' | 'from' | 'receiver'>>;
 export interface QouteParamsCommon {}
-export type QouteParams = QouteParamsCommon & Omit<QuoteQuery, keyof OptionalQouteParams> & OptionalQouteParams;
+export type QouteParams = QouteParamsCommon & QuoteQuery;
 
 export interface MetaQueryOptions {
 	provider?: JsonRpcProvider;
@@ -42,7 +42,7 @@ export function useGetQoute(params: QouteParams, options: MetaQueryOptions) {
 			queryFn: async () => {
 				const momiji = new Momiji(defaultedChain, options.provider!);
 
-				return momiji.orderbookService.getQuote(defaultedParams as QuoteQuery);
+				return momiji.orderbookService.getQuote(defaultedParams);
 			},
 			refetchInterval: options.refetchInterval || 5 * 1000,
 			enabled: Boolean(options.provider) && SUPPORTED_CHAINS.includes(defaultedChain) && options.enabled
