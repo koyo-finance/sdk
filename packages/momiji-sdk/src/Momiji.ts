@@ -4,6 +4,7 @@ import { BigNumber, providers } from 'ethers';
 import { joinSignature, splitSignature, _TypedDataEncoder } from 'ethers/lib/utils';
 import {
 	CHAIN_KOYO_GP_V2_SETTLEMENT_ADDRESS,
+	CHAIN_KOYO_GP_V2_VAULT_RELAYER_ADDRESS,
 	DEFAULT_APP_DATA_HASH,
 	KOYO_GP_V2_SETTLEMENT_SIGNING_NAME,
 	KOYO_GP_V2_SETTLEMENT_SIGNING_VERSION,
@@ -65,8 +66,8 @@ export class Momiji {
 		const signer = this._getSigner(signerAddress);
 		const accountAddress = await signer.getAddress();
 
-		const settlementContract = CHAIN_KOYO_GP_V2_SETTLEMENT_ADDRESS[this.chainId];
-		const balanceAndApproval = await getBalanceAndApproval(accountAddress, order.sellToken, settlementContract, this.provider);
+		const vaultRelayer = CHAIN_KOYO_GP_V2_VAULT_RELAYER_ADDRESS[this.chainId];
+		const balanceAndApproval = await getBalanceAndApproval(accountAddress, order.sellToken, vaultRelayer, this.provider);
 
 		if (this.configuration.throwOnInsufficientBalance && BigNumber.from(order.sellAmount).gt(balanceAndApproval.balance))
 			throw new Error('The signer does not have the amount needed to create the order.');
@@ -79,10 +80,10 @@ export class Momiji {
 						type: 'approval',
 						asset: order.sellToken,
 						transactionMethods: getTransactionMethods(ERC20__factory.connect(order.sellToken, signer), 'approve', [
-							settlementContract,
+							vaultRelayer,
 							MaxUint256
 						]),
-						operator: '0x8bbbD0e8a5A40f761162645E2a4E0f1C090Edf4B'
+						operator: vaultRelayer
 					}
 			  ]
 			: [];
@@ -107,7 +108,7 @@ export class Momiji {
 			submit: async (signedOrder: SigningResult): Promise<string> => {
 				return this.orderbookService.sendOrder({
 					order: { ...order, ...signedOrder },
-					owner: await signer.getAddress()
+					owner: accountAddress
 				});
 			}
 		} as const;
