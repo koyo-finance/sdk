@@ -1,4 +1,5 @@
 import { MaxUint256 } from '@ethersproject/constants';
+import { CHAIN_VAULT } from '@koyofinance/exchange-sdk';
 import { mergeDefault } from '@sapphire/utilities';
 import { BigNumber, providers } from 'ethers';
 import { joinSignature, splitSignature, _TypedDataEncoder } from 'ethers/lib/utils';
@@ -11,7 +12,7 @@ import {
 	ORDER_CREATION_TYPE_FIELDS,
 	SUPPORTED_CHAINS
 } from './constants';
-import { SigningScheme } from './enums';
+import { OrderBalance, SigningScheme } from './enums';
 import { getBalanceAndApproval } from './functions';
 import { MomijiOrderbookApi, MomijiSubgraphApi } from './services';
 import type {
@@ -82,7 +83,7 @@ export class Momiji {
 							settlementContract,
 							MaxUint256
 						]),
-						operator: settlementContract
+						operator: CHAIN_VAULT[this.chainId]
 					}
 			  ]
 			: [];
@@ -107,7 +108,7 @@ export class Momiji {
 			submit: async (signedOrder: SigningResult): Promise<string> => {
 				return this.orderbookService.sendOrder({
 					order: { ...order, ...signedOrder },
-					owner: '0x1811be0994930fe9480eaede25165608b093ad7a'
+					owner: await signer.getAddress()
 				});
 			}
 		} as const;
@@ -165,6 +166,8 @@ export class Momiji {
 		const domainData = this._getDomainData();
 
 		const order: UnsignedOrder = {
+			sellTokenBalance: OrderBalance.EXTERNAL,
+			buyTokenBalance: OrderBalance.ERC20,
 			...orderCreationParameters,
 			appData: appDataHash
 		};

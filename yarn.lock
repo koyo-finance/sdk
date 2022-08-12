@@ -1823,7 +1823,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@koyofinance/exchange-sdk@workspace:packages/exchange-sdk":
+"@koyofinance/exchange-sdk@workspace:^, @koyofinance/exchange-sdk@workspace:packages/exchange-sdk":
   version: 0.0.0-use.local
   resolution: "@koyofinance/exchange-sdk@workspace:packages/exchange-sdk"
   dependencies:
@@ -1881,6 +1881,7 @@ __metadata:
     "@ethersproject/abstract-signer": ^5.6.2
     "@ethersproject/constants": ^5.6.1
     "@koyofinance/core-sdk": "workspace:^"
+    "@koyofinance/exchange-sdk": "workspace:^"
     "@sapphire/utilities": ^3.9.0
     "@typechain/ethers-v5": ^10.1.0
     cross-fetch: ^3.1.5
