@@ -1,5 +1,4 @@
 import { MaxUint256 } from '@ethersproject/constants';
-import { CHAIN_VAULT } from '@koyofinance/exchange-sdk';
 import { mergeDefault } from '@sapphire/utilities';
 import { BigNumber, providers } from 'ethers';
 import { joinSignature, splitSignature, _TypedDataEncoder } from 'ethers/lib/utils';
@@ -83,7 +82,7 @@ export class Momiji {
 							settlementContract,
 							MaxUint256
 						]),
-						operator: CHAIN_VAULT[this.chainId]
+						operator: settlementContract
 					}
 			  ]
 			: [];
@@ -166,7 +165,7 @@ export class Momiji {
 		const domainData = this._getDomainData();
 
 		const order: UnsignedOrder = {
-			sellTokenBalance: OrderBalance.EXTERNAL,
+			sellTokenBalance: OrderBalance.ERC20,
 			buyTokenBalance: OrderBalance.ERC20,
 			...orderCreationParameters,
 			appData: appDataHash
