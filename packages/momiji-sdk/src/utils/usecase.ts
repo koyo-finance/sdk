@@ -86,9 +86,9 @@ export const executeAllActions = async <T extends CreateOrderAction | CancelOrde
 			finalAction.type === 'create' ? finalAction.createOrder() : (finalAction as CancelOrderAction).cancelOrder();
 		const signActionResult = await signAction;
 
-		await submitAction.submit(signActionResult);
+		const id = await submitAction.submit(signActionResult);
 
-		return signActionResult;
+		return { ...signActionResult, id };
 	}
 
 	return finalAction.type === 'create' ? finalAction.createOrder() : finalAction.cancelOrder();

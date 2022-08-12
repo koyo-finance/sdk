@@ -13,6 +13,7 @@ export interface ApprovalAction {
 
 export interface CreateOrderActionResult extends SigningResult {
 	parameters: UnsignedUserOrder;
+	id?: string;
 }
 
 export interface CreateOrderAction {
@@ -31,7 +32,7 @@ export interface CancelOrderAction {
 
 export interface SubmitAction {
 	type: 'submit';
-	submit: (signature: SigningResult) => Promise<void>;
+	submit: (signature: SigningResult) => Promise<string>;
 }
 
 export type TransactionAction = ApprovalAction;
