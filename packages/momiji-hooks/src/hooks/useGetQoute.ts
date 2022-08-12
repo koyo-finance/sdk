@@ -25,6 +25,7 @@ export const DEFAULT_QUOTE_PARAMS: Partial<QouteParams> = {
 
 export function useGetQoute(params: QouteParams, options: MetaQueryOptions) {
 	const defaultedParams = mergeDefault(DEFAULT_QUOTE_PARAMS, params);
+	const defaultedChain = options.chainId || SUPPORTED_CHAINS[0];
 
 	const queryResult = useQuery(
 		[
@@ -38,12 +39,12 @@ export function useGetQoute(params: QouteParams, options: MetaQueryOptions) {
 		],
 		{
 			queryFn: async () => {
-				const momiji = new Momiji(options.chainId || SUPPORTED_CHAINS[0], options.provider!);
+				const momiji = new Momiji(defaultedChain, options.provider!);
 
 				return momiji.orderbookService.getQuote(defaultedParams);
 			},
 			refetchInterval: options.refetchInterval || 5 * 1000,
-			enabled: Boolean(options.provider) && options.enabled
+			enabled: Boolean(options.provider) && SUPPORTED_CHAINS.includes(defaultedChain) && options.enabled
 		}
 	);
 
