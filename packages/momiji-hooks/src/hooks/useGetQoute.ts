@@ -5,8 +5,9 @@ import { Momiji, OrderKind, SupportedChainsList, SUPPORTED_CHAINS } from '@koyof
 import { mergeDefault } from '@sapphire/utilities';
 import { useQuery } from 'react-query';
 
+export type OptionalQouteParams = Partial<Pick<QuoteQuery, 'kind' | 'partiallyFillable' | 'from' | 'receiver'>>;
 export interface QouteParamsCommon {}
-export type QouteParams = QouteParamsCommon & QuoteQuery;
+export type QouteParams = QouteParamsCommon & Omit<QuoteQuery, keyof OptionalQouteParams> & OptionalQouteParams;
 
 export interface MetaQueryOptions {
 	provider?: JsonRpcProvider;
@@ -16,7 +17,7 @@ export interface MetaQueryOptions {
 	enabled?: boolean;
 }
 
-export const DEFAULT_QUOTE_PARAMS: Partial<QouteParams> = {
+export const DEFAULT_QUOTE_PARAMS: OptionalQouteParams = {
 	kind: OrderKind.SELL,
 	partiallyFillable: false,
 	from: ZERO_ADDRESS,
@@ -41,7 +42,7 @@ export function useGetQoute(params: QouteParams, options: MetaQueryOptions) {
 			queryFn: async () => {
 				const momiji = new Momiji(defaultedChain, options.provider!);
 
-				return momiji.orderbookService.getQuote(defaultedParams);
+				return momiji.orderbookService.getQuote(defaultedParams as QuoteQuery);
 			},
 			refetchInterval: options.refetchInterval || 5 * 1000,
 			enabled: Boolean(options.provider) && SUPPORTED_CHAINS.includes(defaultedChain) && options.enabled
