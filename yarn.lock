@@ -1897,7 +1897,28 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@koyofinance/momiji-sdk@workspace:packages/momiji-sdk":
+"@koyofinance/momiji-hooks@workspace:packages/momiji-hooks":
+  version: 0.0.0-use.local
+  resolution: "@koyofinance/momiji-hooks@workspace:packages/momiji-hooks"
+  dependencies:
+    "@cowprotocol/contracts": ^1.3.1
+    "@ethersproject/providers": ^5.6.8
+    "@koyofinance/core-sdk": "workspace:^"
+    "@koyofinance/momiji-sdk": "workspace:^"
+    "@sapphire/utilities": ^3.9.0
+    "@types/node": ^17.0.41
+    "@types/react": 17.0.39
+    "@types/react-dom": 17.0.11
+    react: ^17.0.2
+    react-dom: 17.0.2
+    react-query: ^3.38.1
+    tslib: ^2.4.0
+    tsup: ^5.12.7
+    typescript: ^4.6.4
+  languageName: unknown
+  linkType: soft
+
+"@koyofinance/momiji-sdk@workspace:^, @koyofinance/momiji-sdk@workspace:packages/momiji-sdk":
   version: 0.0.0-use.local
   resolution: "@koyofinance/momiji-sdk@workspace:packages/momiji-sdk"
   dependencies:
