@@ -82,7 +82,7 @@ export class Momiji {
 							settlementContract,
 							MaxUint256
 						]),
-						operator: settlementContract
+						operator: '0x8bbbD0e8a5A40f761162645E2a4E0f1C090Edf4B'
 					}
 			  ]
 			: [];
