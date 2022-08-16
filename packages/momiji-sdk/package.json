@@ -2,7 +2,7 @@
 	"name": "@koyofinance/momiji-sdk",
 	"version": "0.4.1",
 	"description": "",
-	"author": "@koyofinance",
+	"author": "Gnosis Developers <developers@gnosis.io>",
 	"license": "MIT",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",

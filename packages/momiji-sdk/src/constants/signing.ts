@@ -1,4 +1,5 @@
-import type { SignatureTypesStructure } from '../types';
+import { SigningScheme } from '../enums';
+import type { SchemaInfo, SignatureTypesStructure } from '../types';
 
 export const ORDER_CREATION_TYPE_FIELDS: SignatureTypesStructure = {
 	Order: [
@@ -20,3 +21,10 @@ export const ORDER_CREATION_TYPE_FIELDS: SignatureTypesStructure = {
 export const ORDER_CANCELLATION_TYPE_FIELDS: SignatureTypesStructure = {
 	OrderCancellation: [{ name: 'orderUid', type: 'bytes' }]
 };
+
+export const MAP_SIGNING_SCHEME: Map<SigningScheme, SchemaInfo> = new Map([
+	[SigningScheme.EIP712, { libraryValue: 0, apiValue: 'eip712' }],
+	[SigningScheme.ETHSIGN, { libraryValue: 1, apiValue: 'ethsign' }],
+	[SigningScheme.EIP1271, { libraryValue: 2, apiValue: 'eip1271' }],
+	[SigningScheme.PRESIGN, { libraryValue: 3, apiValue: 'presign' }]
+]);

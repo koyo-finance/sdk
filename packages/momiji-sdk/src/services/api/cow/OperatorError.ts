@@ -1,6 +1,6 @@
-import { CowError } from '@cowprotocol/cow-sdk';
 import log from 'loglevel';
 import { logPrefix } from '../../../constants';
+import { MomijiError } from '../../../utils';
 
 type ApiActionType = 'get' | 'create' | 'delete';
 
@@ -79,7 +79,7 @@ function _mapActionToErrorDetail(action?: ApiActionType) {
 	}
 }
 
-export default class OperatorError extends CowError {
+export default class OperatorError extends MomijiError {
 	public name = 'OperatorError';
 	public description: ApiErrorObject['description'];
 

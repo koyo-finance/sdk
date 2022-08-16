@@ -1,6 +1,6 @@
-import type { SupportedChainId } from '@cowprotocol/cow-sdk';
 import type { ChainId } from '@koyofinance/core-sdk';
 import type { Signer } from 'ethers';
+import type { SupportedChainsList } from './chains';
 
 export type Env = 'prod' | 'staging';
 
@@ -25,9 +25,9 @@ export interface CowContext {
 }
 
 export interface Context {
-	updateContext: (cowContext: CowContext, chainId: SupportedChainId) => void;
-	updateChainId: (chainId: SupportedChainId) => SupportedChainId;
-	chainId: Promise<SupportedChainId>;
+	updateContext: (cowContext: CowContext, chainId: SupportedChainsList) => void;
+	updateChainId: (chainId: SupportedChainsList) => SupportedChainsList;
+	chainId: Promise<SupportedChainsList>;
 	appDataHash: string;
 	env: Env;
 	signer: Signer | undefined;

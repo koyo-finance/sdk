@@ -1,4 +1,3 @@
-import type { SupportedChainId } from '@cowprotocol/cow-sdk';
 import type { ChainId } from '@koyofinance/core-sdk';
 import { CHAIN_MOMIJI_ORDERBOOK_API } from '../../constants';
 import type { Context, Env } from '../../types';
@@ -18,6 +17,6 @@ export class MomijiOrderbookApi extends CowApi {
 	}
 
 	public static getMomijiProtocolApiUrl(_env: Env) {
-		return CHAIN_MOMIJI_ORDERBOOK_API as unknown as Record<SupportedChainId, string>;
+		return CHAIN_MOMIJI_ORDERBOOK_API;
 	}
 }

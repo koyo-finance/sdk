@@ -1,6 +1,6 @@
-import { CowError } from '@cowprotocol/cow-sdk';
 import log from 'loglevel';
 import { logPrefix } from '../../../constants';
+import { MomijiError } from '../../../utils';
 import { ApiErrorCodes, ApiErrorObject } from './OperatorError';
 
 export interface GpQuoteErrorObject {
@@ -53,7 +53,7 @@ export function mapOperatorErrorToQuoteError(error?: ApiErrorObject): GpQuoteErr
 	}
 }
 
-export class GpQuoteError extends CowError {
+export class GpQuoteError extends MomijiError {
 	public name = 'QuoteErrorObject';
 	public description: string;
 	// any data attached
