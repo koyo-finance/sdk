@@ -3,7 +3,7 @@ import type { JsonRpcProvider } from '@ethersproject/providers';
 import { ZERO_ADDRESS } from '@koyofinance/core-sdk';
 import { GpQuoteError, Momiji, OrderKind, SupportedChainsList, SUPPORTED_CHAINS } from '@koyofinance/momiji-sdk';
 import { mergeDefault } from '@sapphire/utilities';
-import { useQuery } from 'react-query';
+import { useQuery, UseQueryOptions } from 'react-query';
 
 export type OptionalQouteParams = Partial<Pick<QuoteQuery, 'kind' | 'partiallyFillable' | 'from' | 'receiver'>>;
 export interface QouteParamsCommon {}
@@ -15,6 +15,8 @@ export interface MetaQueryOptions {
 
 	refetchInterval?: number;
 	useErrorBoundry?: boolean;
+	suspense?: boolean;
+	retry: UseQueryOptions['retry'];
 	onError?: (err: GpQuoteError) => void;
 	enabled?: boolean;
 }
@@ -48,7 +50,9 @@ export function useGetQoute(params: QouteParams, options: MetaQueryOptions) {
 			},
 			refetchInterval: options.refetchInterval || 5 * 1000,
 			useErrorBoundary: options.useErrorBoundry,
+			suspense: options.suspense,
 			onError: options.onError,
+			retry: options.retry,
 			enabled: Boolean(options.provider) && SUPPORTED_CHAINS.includes(defaultedChain) && options.enabled
 		}
 	);
