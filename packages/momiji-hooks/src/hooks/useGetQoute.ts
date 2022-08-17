@@ -1,7 +1,7 @@
 import type { QuoteQuery } from '@cowprotocol/contracts';
 import type { JsonRpcProvider } from '@ethersproject/providers';
 import { ZERO_ADDRESS } from '@koyofinance/core-sdk';
-import { Momiji, OrderKind, SupportedChainsList, SUPPORTED_CHAINS } from '@koyofinance/momiji-sdk';
+import { GpQuoteError, Momiji, OrderKind, SupportedChainsList, SUPPORTED_CHAINS } from '@koyofinance/momiji-sdk';
 import { mergeDefault } from '@sapphire/utilities';
 import { useQuery } from 'react-query';
 
@@ -14,6 +14,8 @@ export interface MetaQueryOptions {
 	chainId?: SupportedChainsList;
 
 	refetchInterval?: number;
+	useErrorBoundry?: boolean;
+	onError?: (err: GpQuoteError) => void;
 	enabled?: boolean;
 }
 
@@ -39,12 +41,14 @@ export function useGetQoute(params: QouteParams, options: MetaQueryOptions) {
 			defaultedParams.partiallyFillable
 		],
 		{
-			queryFn: async () => {
+			queryFn: () => {
 				const momiji = new Momiji(defaultedChain, options.provider!);
 
 				return momiji.orderbookService.getQuote(defaultedParams);
 			},
 			refetchInterval: options.refetchInterval || 5 * 1000,
+			useErrorBoundary: options.useErrorBoundry,
+			onError: options.onError,
 			enabled: Boolean(options.provider) && SUPPORTED_CHAINS.includes(defaultedChain) && options.enabled
 		}
 	);
