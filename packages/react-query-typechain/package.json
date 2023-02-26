@@ -39,7 +39,6 @@
 	"sideEffects": false,
 	"dependencies": {
 		"@tanstack/react-query": "^4.24.10",
-		"@tanstack/react-query-devtools": "^4.24.10",
 		"@zerollup/ts-transform-paths": "^1.7.18",
 		"ethers": "^5.6.8",
 		"lodash.isequal": "^4.5.0",

@@ -1,5 +1,5 @@
 import type { BigNumber, Contract, ContractReceipt, ContractTransaction, Overrides, Signer } from 'ethers';
-import { useMutation, UseMutationResult } from 'react-query';
+import { useMutation, UseMutationResult } from '@tanstack/react-query';
 import { isTransactionFailedError, isTransactionReplacedError, TransactionError } from '../../base/TransactionError';
 import { TransactionStatus } from '../../base/TransactionStatus';
 import type { ContractFunctionCall, ContractMethodArgs, ContractMethodName, EstimateGasContractCall, EstimateGasMethodName } from '../../types';

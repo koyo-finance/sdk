@@ -1,5 +1,5 @@
 import type { Contract, Event } from 'ethers';
-import { QueryObserverResult, useQuery, UseQueryOptions } from 'react-query';
+import { QueryObserverResult, useQuery, UseQueryOptions } from '@tanstack/react-query';
 import type { ContractFilterArgs, ContractFilterName } from '../../types';
 
 export interface UseSmartContractEventsCallOptions<TContract extends Contract, TFilterName extends ContractFilterName<TContract>> {

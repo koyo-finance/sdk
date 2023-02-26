@@ -1,6 +1,6 @@
 import type { Contract } from 'ethers';
 import isEqual from 'lodash.isequal';
-import type { Query } from 'react-query';
+import type { Query } from '@tanstack/react-query';
 import { makeSmartContractReadCallQueryKey } from '../../hooks/useSmartContractReadCall/useSmartContractReadCall';
 import type { ContractMethodName } from '../../types';
 

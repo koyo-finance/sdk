@@ -1,5 +1,5 @@
 import type { Contract } from 'ethers';
-import { QueryObserverResult, useQuery, UseQueryOptions } from 'react-query';
+import { QueryObserverResult, useQuery, UseQueryOptions } from '@tanstack/react-query';
 import type { Unpacked } from '../../base/Unpacked';
 import type { ContractMethodArgs, ContractMethodName, StaticContractReturnType } from '../../types';
 

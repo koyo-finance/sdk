@@ -1,7 +1,7 @@
+import { QueryObserverResult, useQueries } from '@tanstack/react-query';
 import type { Contract } from 'ethers';
 import isPlainObject from 'lodash.isplainobject';
 import zip from 'lodash.zip';
-import { QueryObserverResult, useQueries, UseQueryOptions } from 'react-query';
 import type { Unpacked } from '../../base/Unpacked';
 import type { ContractMethodName, StaticContractReturnType } from '../../types';
 import { makeSmartContractReadCallUseQueryOptions, UseSmartContractReadCallOptions } from '../useSmartContractReadCall/useSmartContractReadCall';
@@ -53,7 +53,7 @@ export function useSmartContractReadCalls<
 
 	// Cast this to unkown when calling useQueries, because useQueries does not
 	// yet support generics and string and unknown are incompatible types.
-	const queryResult = useQueries(queryOptions as UseQueryOptions<unknown, unknown, unknown>[]) as QueryObserverResult<TContractData, unknown>[];
+	const queryResult = useQueries({ queries: queryOptions }) as QueryObserverResult<TContractData, unknown>[];
 
 	return queryResult;
 }
