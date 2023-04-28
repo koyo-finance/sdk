@@ -1,2 +1,0 @@
-export const BOBABEAM_MULTICALL_ONE_ADDRESS = '';
-export const BOBABEAM_WETH_ADDRESS = '';
