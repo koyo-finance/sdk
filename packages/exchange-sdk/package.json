@@ -59,7 +59,7 @@
 		"@graphql-codegen/typescript-document-nodes": "^2.3.1",
 		"@graphql-codegen/typescript-graphql-request": "^4.5.1",
 		"@graphql-codegen/typescript-operations": "^2.5.1",
-		"@typechain/ethers-v5": "^10.1.0",
+		"@typechain/ethers-v5": "^10.2.0",
 		"@types/lodash.set": "^4.3.7",
 		"graphql": "^16.5.0",
 		"tsup": "^5.12.7",

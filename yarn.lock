@@ -1839,7 +1839,7 @@ __metadata:
     "@koyofinance/core-sdk": "workspace:^"
     "@koyofinance/sor": "workspace:^"
     "@sapphire/fetch": ^2.4.1
-    "@typechain/ethers-v5": ^10.1.0
+    "@typechain/ethers-v5": ^10.2.0
     "@types/lodash.set": ^4.3.7
     graphql: ^16.5.0
     graphql-tag: ^2.12.6
@@ -1860,9 +1860,9 @@ __metadata:
     "@koyofinance/core-sdk": "workspace:^"
     "@koyofinance/momiji-sdk": "workspace:^"
     "@sapphire/utilities": ^3.9.0
-    "@types/node": ^17.0.41
-    "@types/react": 17.0.39
-    "@types/react-dom": 17.0.11
+    "@types/node": ^18.16.2
+    "@types/react": 18.2.0
+    "@types/react-dom": 18.2.1
     react: ^17.0.2
     react-dom: 17.0.2
     react-query: ^3.38.1
@@ -1883,7 +1883,7 @@ __metadata:
     "@koyofinance/core-sdk": "workspace:^"
     "@koyofinance/exchange-sdk": "workspace:^"
     "@sapphire/utilities": ^3.9.0
-    "@typechain/ethers-v5": ^10.1.0
+    "@typechain/ethers-v5": ^10.2.0
     cross-fetch: ^3.1.5
     ethers: ^5.6.9
     graphql: ^16.5.0
@@ -1901,13 +1901,13 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@koyofinance/react-query-typechain@workspace:packages/react-query-typechain"
   dependencies:
-    "@tanstack/react-query": ^4.24.10
+    "@tanstack/react-query": ^4.29.5
     "@types/lodash.isequal": ^4.5.5
     "@types/lodash.isplainobject": ^4.0.6
     "@types/lodash.zip": ^4.2.6
-    "@types/node": ^18.14.1
-    "@types/react": 18.0.28
-    "@types/react-dom": 18.0.11
+    "@types/node": ^18.16.2
+    "@types/react": 18.2.0
+    "@types/react-dom": 18.2.1
     "@zerollup/ts-transform-paths": ^1.7.18
     ethers: ^5.6.8
     lodash.isequal: ^4.5.0
@@ -1929,7 +1929,7 @@ __metadata:
     "@balancer-labs/sor": ^4.0.1-beta.1
     "@ethersproject/abstract-provider": ^5.6.1
     "@ethersproject/constants": ^5.6.1
-    "@typechain/ethers-v5": ^10.1.0
+    "@typechain/ethers-v5": ^10.2.0
     ethers: ^5.6.9
     tslib: ^2.4.0
     tsup: ^5.12.7
@@ -2347,18 +2347,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tanstack/query-core@npm:4.24.10":
-  version: 4.24.10
-  resolution: "@tanstack/query-core@npm:4.24.10"
-  checksum: 8268b9dca4a2ed39f8575976d8a3e2f839bb6f4fb821dc00ba8e2aeffffe2f73e23344bcc24b9cb6dae9dbfe3ba2b14c76a1e0a38b4064c83beb9aa607fd94bc
+"@tanstack/query-core@npm:4.29.5":
+  version: 4.29.5
+  resolution: "@tanstack/query-core@npm:4.29.5"
+  checksum: 367176beccd78e959c74e69e96497b626dd1c139398501eb7a04cf92215edf262665c3e7bb59df68320779d49893d3153a3b41e750b9046655b45cfe44691b36
   languageName: node
   linkType: hard
 
-"@tanstack/react-query@npm:^4.24.10":
-  version: 4.24.10
-  resolution: "@tanstack/react-query@npm:4.24.10"
+"@tanstack/react-query@npm:^4.29.5":
+  version: 4.29.5
+  resolution: "@tanstack/react-query@npm:4.29.5"
   dependencies:
-    "@tanstack/query-core": 4.24.10
+    "@tanstack/query-core": 4.29.5
     use-sync-external-store: ^1.2.0
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -2369,7 +2369,7 @@ __metadata:
       optional: true
     react-native:
       optional: true
-  checksum: 576a2c73e98cf6a3c9584283989383d5ac63b01efe546cc7580ec7b1edf0c0cb8958a3071778cb0af908f5269d45c7516fa388e5f856e37f5b2d3c6110974cbe
+  checksum: de45573900810b37216aa8d6599cae5ea43602eaada9fd2224f57ff7ab1de10b3f2e681e7fdb993ee1519ed8ffc7e6e07d6bf3ad1b9da4136b1ae78ca19f31f6
   languageName: node
   linkType: hard
 
@@ -2408,9 +2408,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typechain/ethers-v5@npm:^10.1.0":
-  version: 10.1.0
-  resolution: "@typechain/ethers-v5@npm:10.1.0"
+"@typechain/ethers-v5@npm:^10.2.0":
+  version: 10.2.0
+  resolution: "@typechain/ethers-v5@npm:10.2.0"
   dependencies:
     lodash: ^4.17.15
     ts-essentials: ^7.0.1
@@ -2419,9 +2419,9 @@ __metadata:
     "@ethersproject/bytes": ^5.0.0
     "@ethersproject/providers": ^5.0.0
     ethers: ^5.1.3
-    typechain: ^8.1.0
+    typechain: ^8.1.1
     typescript: ">=4.3.0"
-  checksum: 452ad685ce792ddefebdcb8ae72f4343ed1411f91701250e273c1a0dd79753d0d40f311cff19ec0c4fd6a9b9cf23e55eb9ae1b94cb388fbc54c122ae4d0e6f47
+  checksum: 22f7109f22a6e2b459c45aaf5424143b6129455659aa132ab447ed14d24bb68a6b3b4021008244faca743d469208037a7766d3d9c3ab49db42d36f4e382887c4
   languageName: node
   linkType: hard
 
@@ -2577,17 +2577,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^17.0.41":
-  version: 17.0.45
-  resolution: "@types/node@npm:17.0.45"
-  checksum: aa04366b9103b7d6cfd6b2ef64182e0eaa7d4462c3f817618486ea0422984c51fc69fd0d436eae6c9e696ddfdbec9ccaa27a917f7c2e8c75c5d57827fe3d95e8
-  languageName: node
-  linkType: hard
-
-"@types/node@npm:^18.14.1":
-  version: 18.14.1
-  resolution: "@types/node@npm:18.14.1"
-  checksum: 58556bbdb0050e44a4934742c1da2530812782c06d266a758e669e44c5aa196166c5fce45fdb03f016876717e3840478b3220129bb77367f979607564047f0a3
+"@types/node@npm:^18.16.2":
+  version: 18.16.2
+  resolution: "@types/node@npm:18.16.2"
+  checksum: 7ad66d23b3b93885a9f879bff98e0196790ad35589b47a3d81b52db969ad17ee298082020296df5166c2d72d3cd6a4b9ab34d254483637d967944a4b3e6febdb
   languageName: node
   linkType: hard
 
@@ -9735,7 +9728,7 @@ __metadata:
     "@sapphire/prettier-config": ^1.4.3
     "@sapphire/ts-config": ^3.3.4
     "@swc/core": ^1.2.183
-    "@types/node": ^18.14.1
+    "@types/node": ^18.16.2
     "@typescript-eslint/eslint-plugin": ^5.23.0
     "@typescript-eslint/parser": ^5.23.0
     eslint: ^8.15.0
